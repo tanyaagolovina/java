@@ -16,13 +16,8 @@ public class DecimalNumbersController {
         model.setNumber();
         view.printMessage(view.SYSTEM);
         model.setSystem();
-        if(model.isPositiveNumber()){
-            model.translateNumber();
-            model.revert();
-            view.printResult(view.RESULT, model.getRevertedNumber());
-        } else {
-            view.printMessage(view.ERROR);
-        }
-
+        model.translateNumber();
+        model.revert();
+        view.printResult(view.RESULT, model.getRevertedNumber());
     }
 }
