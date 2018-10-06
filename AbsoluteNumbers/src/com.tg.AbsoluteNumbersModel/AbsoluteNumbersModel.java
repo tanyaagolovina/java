@@ -1,22 +1,26 @@
+package com.tg.AbsoluteNumbersModel;
+
+import com.tg.AbsoluteNumbersView.AbsoluteNumbersView;
 import java.util.Scanner;
 
-public class AbsoluteNumbers {
+public class AbsoluteNumbersModel {
     private int range;
+
     public int setRange(){
-        System.out.print("Enter an integer: ");
         Scanner scanner = new Scanner(System.in);
         range = scanner.nextInt();
         if(range<=0) {
-            System.out.println("Error! Enter a positive integer!");
+            System.out.print(AbsoluteNumbersView.ERROR);
             return setRange();
         } else {
             return range;
         }
     }
-    public void findNumbers(int range) {
-        int i;
-        int divisor = 0;
-        for(i=range;i>=1;i--) {
+    public String findNumbers() {
+        int divisor;
+        String result = "";
+        for(int i=range;i>=1;i--) {
+            divisor = 0;
             for (int j=0;j<i;j++) {
                 if(j!=0) {
                     if(j<=i/2) {
@@ -27,10 +31,10 @@ public class AbsoluteNumbers {
                 }
             }
             if (divisor==i){
-                System.out.println(i+" is absolute number");
+                result+=" "+i;
             }
-            divisor = 0;
         }
+        return result;
     }
-}
 
+}
