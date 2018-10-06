@@ -1,11 +1,14 @@
+import com.tg.MatrixController.MatrixController;
+import com.tg.MatrixModel.MatrixModel;
+import com.tg.MatrixView.MatrixView;
+
+
 public class Main {
     public static void main(String[] args){
-        Matrix matrix = new Matrix();
-        matrix.setSize();
-        matrix.createMatrix();
-        matrix.showMatrix(matrix.createMatrix());
-        System.out.println();
-        matrix.showMatrix(matrix.revertMatrix());
+        MatrixModel model = new MatrixModel();
+        MatrixView view = new MatrixView();
+        MatrixController controller = new MatrixController(model,view);
+        controller.runMatrix();
     }
 }
 
