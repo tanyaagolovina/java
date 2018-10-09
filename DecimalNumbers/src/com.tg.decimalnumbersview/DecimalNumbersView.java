@@ -5,6 +5,7 @@ public class DecimalNumbersView {
     public static String ERROR = "Error!You have to enter only positive numbers! Repeat : ";
     public static String ERROR_SYSTEM = "Error!You have to enter only 2,8,16! Repeat : ";
     public static String RESULT = "Result = ";
+    public static String ERROR_NAN = "It's not a number. Try again : ";
 
     public void printMessage(String message){
         System.out.print(message);
