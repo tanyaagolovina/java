@@ -6,12 +6,9 @@ public class DecimalNumbersView {
     public static String ERROR_SYSTEM = "Error!You have to enter only 2,8,16! Repeat : ";
     public static String RESULT = "Result = ";
 
-
-
     public void printMessage(String message){
         System.out.print(message);
     }
-
     public void printResult(String message,String result){
         System.out.print(message+result);
 
