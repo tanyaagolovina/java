@@ -3,6 +3,7 @@ package com.tg.MatrixView;
 public class MatrixView {
     public static String INPUT_SIZE = "Enter a positive integer(size of matrix): ";
     public static String ERROR = "Error!You have to enter a positive number! Repeat: ";
+    public static String ERROR_NAN = "It's not a number! Repeat: ";
     public static String MATRIX = "Initial matrix";
     public static String REVERTED_MATRIX = "Reverted matrix";
 

@@ -1,30 +1,16 @@
 package com.tg.MatrixModel;
 
-import com.tg.MatrixView.MatrixView;
-
-import java.util.Scanner;
 
 public class MatrixModel {
     private int [][] arr;
-    private int size;
 
-    public int setSize(){
-        Scanner in = new Scanner(System.in);
-        size = in.nextInt();
-        if(size<=0) {
-            System.out.print(MatrixView.ERROR);
-            return setSize();
-        } else {
-            return size;
-        }
-    }
     public int random(){
         double randomNumber = Math.random();
         randomNumber = randomNumber*100;
         int randomInt = (int)randomNumber - 50;
         return randomInt;
     }
-    public int[][] createMatrix(){
+    public int[][] createMatrix(int size){
         arr = new int [size][size];
         for(int i=0;i<arr.length;i++){
             for(int j=0;j<arr.length;j++){
