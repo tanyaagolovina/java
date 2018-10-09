@@ -1,18 +1,36 @@
 package com.tg.PyramidController;
 
-import com.tg.PyramidModel.PyramidModel;
 import com.tg.PyramidView.PyramidView;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class PyramidController {
-    private PyramidModel model = new PyramidModel();
     private PyramidView view = new PyramidView();
 
-    public PyramidController(PyramidModel model, PyramidView view){
-        this.model = model;
+    public PyramidController(PyramidView view){
         this.view = view;
     }
     public void buildPyramid(){
-        view.printMessage(view.INPUT_HEIGHT);
-        view.showPyramid(model.setHeight());
+        view.printMessage(PyramidView.INPUT_HEIGHT);
+        view.showPyramid(setHeight());
+    }
+    private int setHeight(){
+        try {
+            Scanner in = new Scanner(System.in);
+            int height = in.nextInt();
+            return checkNumber(height);
+        } catch (InputMismatchException e){
+            view.printMessage(PyramidView.ERROR_NAN);
+            return setHeight();
+        }
+    }
+    private int checkNumber(int number){
+        if(number <= 0) {
+            view.printMessage(PyramidView.ERROR);
+            return setHeight();
+        } else {
+            return number;
+        }
     }
 }
