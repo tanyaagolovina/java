@@ -50,11 +50,9 @@ public class Books {
         return Arrays.copyOf( temp, counter);
 
     }
-    //тут ошибка, разберись
     public Book[] orderByPublisher(){
-        Book[] temp = new Book[books.length];
-        Arrays.sort(temp, new BooksComparator());
-        return Arrays.copyOf( temp, books.length);
+        Arrays.sort( books, new BooksComparator());
+        return Arrays.copyOf( books, books.length);
     }
 
 }

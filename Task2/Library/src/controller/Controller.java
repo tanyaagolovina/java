@@ -13,7 +13,7 @@ public class Controller {
 
 
     public void run(){
-        introduction();
+        view.printMessage(BooksView.INTRO);
         model.setBooks(DataSource.getBooks());
         String searchTerms;
         view.printBooks(view.ALL_BOOKS, model.getBooks());
@@ -36,14 +36,6 @@ public class Controller {
         Scanner in = new Scanner(System.in);
         input = in.nextLine();
         return input.trim();
-    }
-    private void introduction(){
-       view.printMessage("This is library. What can you do?");
-       view.printMessage("1.Find books by author(enter - author)");
-       view.printMessage("2.Find books by publisher(enter - publisher)");
-       view.printMessage("3.Find books by year. As result you'll see all books written after this year(enter - year)");
-       view.printMessage("4.Order all books by publisher(enter - order)");
-       view.printMessage("5.Exit(enter - exit)");
     }
     private void findBy(String searchTerms){
         String temp;
