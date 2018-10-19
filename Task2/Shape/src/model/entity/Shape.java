@@ -14,6 +14,8 @@ public abstract class Shape implements Drawable {
 
     public abstract double calcArea();
 
+    public abstract void draw();
+
     @Override
     public String toString() {
         return this.getClass().getSimpleName() +

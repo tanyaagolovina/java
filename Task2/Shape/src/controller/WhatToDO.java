@@ -1,7 +1,6 @@
 package controller;
 
 import model.Shapes;
-import model.entity.Shape;
 import view.ShapesView;
 
 public class WhatToDO {
