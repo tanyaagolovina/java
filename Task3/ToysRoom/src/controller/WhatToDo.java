@@ -2,6 +2,7 @@ package controller;
 
 import model.ToysRoom;
 import model.entity.Toy;
+import service.SearchUtility;
 import view.InputUtility;
 import view.ToysView;
 
@@ -38,7 +39,11 @@ public class WhatToDo {
         }
     }
 
-    public static void executeBy(int term, ToysRoom toy){
+    public void getResult(int term, SearchUtility toy){
+            executeBy(term, toy);
+    }
+
+    private void executeBy(int term, SearchUtility toy){
         if(term == 1){
             new ToysView().printResult(ToysView.PRICE, toy.sumPrice());
         } else if(term == 2){
@@ -58,4 +63,8 @@ public class WhatToDo {
         }
     }
 
+    private boolean isNotEmpty(ToysRoom toy){
+        if(toy != null) return true;
+        else return false;
+    }
 }

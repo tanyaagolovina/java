@@ -4,7 +4,7 @@ import model.entity.Toy;
 
 public class ToysView {
     public static  String MENU = "This is toy room. \n" +
-            "1. To calculate price of all toys enter%.2f - 1 \n" +
+            "1. To calculate price of all toys enter - 1 \n" +
             "2. To look through all toys of specific type enter - 2 \n" +
             "3. To find toys of specific type with specific name enter - 3 \n" +
             "4. To sort toys by price enter - 4 \n" +
@@ -24,7 +24,7 @@ public class ToysView {
     }
 
     public void printToys(Toy[] toys){
-        if(toys == null) {
+        if (toys.length != 0) {
             for (Toy toy : toys) {
                 System.out.println(toy);
             }
