@@ -1,12 +1,9 @@
 package com.tg.decimalnumbersmodel;
 
-import java.util.Scanner;
-import com.tg.decimalnumbersview.DecimalNumbersView;
 
 
 public class DecimalNumbersModel {
     private String newNumber;
-    private String revertedNumber;
 
     public void translateNumber(int number, int system){
         newNumber = "";
@@ -17,10 +14,10 @@ public class DecimalNumbersModel {
         }
         while(number>0);
     }
-    public void revert(){
-        revertedNumber = new StringBuffer(newNumber).reverse().toString();
+    private String revert(){
+        return new StringBuffer(newNumber).reverse().toString();
     }
     public String getRevertedNumber(){
-        return revertedNumber;
+        return revert();
     }
 }

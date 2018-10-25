@@ -2,8 +2,9 @@ package com.tg.AbsoluteNumbersController;
 
 import com.tg.AbsoluteNumbersView.AbsoluteNumbersView;
 import com.tg.AbsoluteNumbersModel.AbsoluteNumbersModel;
+import com.tg.AbsoluteNumbersView.InputUtility;
+import com.tg.AbsoluteNumbersView.OutputMessages;
 
-import java.util.Scanner;
 
 public class AbsoluteNumbersController {
     private AbsoluteNumbersModel model;
@@ -14,10 +15,10 @@ public class AbsoluteNumbersController {
         this.view = view;
     }
     public void findNumbers(){
-        view.printMessage(view.INPUT_VALUE);
-        view.printResult(view.RESULT, model.findNumbers(setRange()));
+        view.printMessage(OutputMessages.INPUT_VALUE);
+        view.printResult(OutputMessages.RESULT, model.findNumbers(InputUtility.getInt()));
     }
-    private int setRange(){
+    /*private int setRange(){
         Scanner scanner = new Scanner(System.in);
         int range = scanner.nextInt();
         if(range <= 0) {
@@ -27,5 +28,5 @@ public class AbsoluteNumbersController {
             return range;
         }
 
-    }
+    }*/
 }

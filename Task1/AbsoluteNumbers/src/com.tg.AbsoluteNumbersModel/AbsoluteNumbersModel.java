@@ -2,21 +2,19 @@ package com.tg.AbsoluteNumbersModel;
 
 public class AbsoluteNumbersModel {
     public String findNumbers(int range) {
-        int divisor;
+        int generalDivisor;
         String result = "";
-        for(int i = range; i >= 1; i--) {
-            divisor = 0;
-            for (int j = 0; j < i; j++) {
-                if(j != 0) {
-                    if(j <= i/2) {
-                        if (i % j == 0) {
-                            divisor += j;
-                        }
+        for(int numberFromRange = range; numberFromRange >= 1; numberFromRange--) {
+            generalDivisor = 0;
+            for (int divisor = 1; divisor < numberFromRange ; divisor++) {
+                if(divisor <= numberFromRange/2) {
+                    if (numberFromRange % divisor == 0) {
+                        generalDivisor += divisor;
                     }
                 }
             }
-            if (divisor == i){
-                result += " " + i;
+            if (generalDivisor == numberFromRange){
+                result += " " + numberFromRange;
             }
         }
         return result;
