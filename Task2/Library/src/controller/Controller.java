@@ -2,7 +2,7 @@ package controller;
 
 import data.DataSource;
 import model.entity.Book;
-import model.entity.model.Books;
+import model.Books;
 import view.BooksView;
 
 import java.util.Scanner;
