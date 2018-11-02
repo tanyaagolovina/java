@@ -12,7 +12,7 @@ public class OutputMessages {
                     "7. To sort salads by name enter - 7 \n" +
                     "8. To exit - enter 0 \n";
 
-    public final static String WHAT_TO_DO = "What do you want to do? ";
+    public final static String WHAT_TO_DO = "\nWhat do you want to do? ";
     public final static String ENTER_AMOUNT_OF_INGREDIENTS = "Enter amount of ingredients that you want to add to salad: ";
     public final static String ERROR = "You have entered a wrong data, check it and try again.";
     public final static String DOES_NOT_EXIST = "This product does not exist. Try again.";

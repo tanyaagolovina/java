@@ -21,7 +21,7 @@ public class Sorter implements Comparator {
         Arrays.sort(salads, new Comparator<Salad>() {
             @Override
             public int compare(Salad o1, Salad o2) {
-              return o1.getName().compareTo(o2.getName());
+                return o1.getName().compareTo(o2.getName());
             }
         });
         return salads;

@@ -11,7 +11,7 @@ import view.OutputMessages;
 
 
 
-public class Implementetion {
+public class Implementation {
     private static CookView view = new CookView();
 
 
@@ -47,3 +47,4 @@ public class Implementetion {
     }
 
 }
+

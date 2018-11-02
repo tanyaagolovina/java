@@ -1,7 +1,6 @@
 package controller;
 
 import model.Menu;
-import model.entity.Tomato;
 import services.InputUtility;
 import view.CookView;
 import view.OutputMessages;
@@ -23,7 +22,7 @@ public class CookController {
         do{
             view.printMessage(OutputMessages.WHAT_TO_DO);
             input = InputUtility.getInput();
-            Implementetion.implement(input, menu);
+            Implementation.implement(input, menu);
         } while(!input.equals("0"));
     }
 }

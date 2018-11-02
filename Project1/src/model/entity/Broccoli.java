@@ -2,9 +2,9 @@ package model.entity;
 
 public class Broccoli extends Vegetable {
     {
-        name = this.getClass().getSimpleName();
-        calories = 34;
-        price = 80;
+        setName(this.getClass().getSimpleName());
+        setCalories(34);
+        setPrice(80);
     }
 
 }

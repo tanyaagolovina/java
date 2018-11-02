@@ -2,9 +2,9 @@ package model.entity;
 
 public class Corn extends Vegetable{
     {
-        name = this.getClass().getSimpleName();
-        calories = 86;
-        price = 30;
+        setName(this.getClass().getSimpleName());
+        setCalories(86);
+        setPrice(30);
     }
 
 }

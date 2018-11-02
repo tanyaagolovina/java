@@ -4,9 +4,9 @@ import model.entity.Vegetable;
 
 import java.util.ArrayList;
 
-public class Salad {
+public class Salad <T extends Vegetable> {
     private String name;
-    private ArrayList<Vegetable> ingredients = new ArrayList<>();
+    private ArrayList<T> ingredients = new ArrayList<>();
     private Counter counter = new Counter();
 
     public Salad(String name){
@@ -17,7 +17,7 @@ public class Salad {
         this.name = name;
     }
 
-    public void setIngredients(ArrayList<Vegetable> vegetables){
+    public void setIngredients(ArrayList<T> vegetables){
         for(int ingredient = 0; ingredient < vegetables.size(); ingredient++){
            ingredients.add(vegetables.get(ingredient));
         }
