@@ -10,6 +10,8 @@ public enum ItemMenu {
     FIND_YEAR(new FindYearCommand()),
     SORT_PUBLISH(new SortPublisherCommand()),
     LANGUAGE(new ChooseLanguageCommand()),
+    ADD_BOOK(new AddBookCommand()),
+    DELETE_BOOK(new DeleteBookCommand()),
     DEFAULT(new DefaultCommand());
     private Command command;
     ItemMenu(Command command){

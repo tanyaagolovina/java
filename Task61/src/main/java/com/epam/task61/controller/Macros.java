@@ -5,6 +5,8 @@ import com.epam.task61.service.ServiceBooks;
 import com.epam.task61.util.ResorceManager;
 import com.epam.task61.view.BookView;
 
+import java.sql.SQLException;
+
 public class Macros implements Command {
 
     private int input;
@@ -14,7 +16,7 @@ public class Macros implements Command {
     }
 
     @Override
-    public void execute(BookView view, ServiceBooks serviceBooks, ResorceManager resorceManager) {
+    public void execute(BookView view, ServiceBooks serviceBooks, ResorceManager resorceManager) throws SQLException {
         ItemMenu itemMenu = defineMenuItem(input);
         itemMenu.getCommand().execute(view, serviceBooks, resorceManager);
     }

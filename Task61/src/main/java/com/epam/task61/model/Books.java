@@ -27,12 +27,21 @@ public class Books {
         counter += books.length;
     }
 
+
     public void addBook(Book book) {
         if (counter == books.length) {
             books = Arrays.copyOf(books,
                     books.length * 2);
         }
         books[counter++] = book;
+    }
+
+    public void deleteBook(Book[] books){
+        this.books = Arrays.copyOf(this.books, books.length);
+        for (int book = 0; book < books.length; book++) {
+            this.books[book] = books[book];
+        }
+        counter = books.length;
     }
 
     public Book[] getByAuthor(String author){
