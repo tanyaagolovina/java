@@ -1,4 +1,4 @@
-package utils.validators;
+package utils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
