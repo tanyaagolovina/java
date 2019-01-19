@@ -1,4 +1,4 @@
-package controller.action.teller;
+package controller.action.generalActions;
 
 import controller.action.Action;
 import model.User;
@@ -7,7 +7,6 @@ import service.Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.rmi.server.ServerCloneException;
 import java.util.ArrayList;
 
 public class LoginForFormAction implements Action {
@@ -21,6 +20,7 @@ public class LoginForFormAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         ArrayList<String> messages = new ArrayList<>();
+        String page;
         User adminUser = service.login(request.getParameter("username"), request.getParameter("password"), "admin");
         if(adminUser != null) {
             session.setAttribute("adminUser", adminUser);
@@ -29,6 +29,11 @@ public class LoginForFormAction implements Action {
             messages.add(messageManager.getProperty("TRY_AGAIN"));
             request.setAttribute("messages", messages);
         }
-        return configurationManager.getProperty("open_check");
+        switch (request.getParameter("role")) {
+            case "teller" : page = configurationManager.getProperty("open_check"); break;
+            case "specialist" : page = configurationManager.getProperty("main_specialist"); break;
+            default: page = configurationManager.getProperty("error");
+        }
+        return page;
     }
 }

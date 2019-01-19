@@ -26,14 +26,20 @@
 
 <button id="add_button"><fmt:message key="ADD_PRODUCT"/></button>
 <button form="close_check_form"><fmt:message key="CLOSE_CHECK"/></button>
+
 <c:if test="${adminUser != null}">
-    <form action="${pageContext.request.contextPath}/main" method="post">
-        <input type="submit" value="<fmt:message key="OK"/>">
+    <button form="cancel_check_form" type="submit"><fmt:message key="OK"/></button>
+    <form id="cancel_check_form" action="${pageContext.request.contextPath}/main" method="post">
         <input type="hidden" name="command" value="CANCEL_CHECK">
-        <input type="hidden" name="role" value="admin">
+        <input type="hidden" name="role" value="${adminUser.role}">
     </form>
 </c:if>
 <button id="req_cancel_check_button" type="submit"><fmt:message key="CANCEL_CHECK"/></button>
+
+<c:if test="${check.products != null}">
+    <button id="req_cancel_product_button" type="submit"><fmt:message key="CANCEL_PRODUCT"/></button>
+</c:if>
+
 
 <c:if test="${product_error_list != null}">
     <c:forEach items="${product_error_list}" var="message">
@@ -43,21 +49,22 @@
 
 <form id="add_product_form" action="${pageContext.request.contextPath}/main">
     <input type="hidden" name="command" value="ADD_PRODUCT"/>
-    <input type="hidden" name="role" value="teller"/>
+    <input type="hidden" name="role" value="${user.role}"/>
 </form>
 
 <form id="close_check_form" action="${pageContext.request.contextPath}/main">
     <input type="hidden" name="command" value="CLOSE_CHECK"/>
-    <input type="hidden" name="role" value="teller"/>
+    <input type="hidden" name="role" value="${user.role}"/>
 </form>
 
 <form id="admin_form" action="${pageContext.request.contextPath}/main" hidden="hidden" method="post">
     <input type="hidden" name="command" value="LOGIN_FORM"/>
-    <input type="hidden" name="role" value="teller"/>
+    <input type="hidden" name="role" value="${user.role}"/>
     <input type="text" name="username" required placeholder="<fmt:message key="USERNAME"/>"/>
     <input type="password" name="password" required placeholder="<fmt:message key="PASSWORD"/>"/>
     <button type="submit"><fmt:message key="LOGIN"/></button>
 </form>
+
 
 <c:if test="${messages != null}">
     <c:forEach items="${messages}" var="message">
@@ -70,15 +77,14 @@
     <hr>
     <c:forEach items="${check.products}" var="product">
         <p>${product}</p>
-            <input type="button" value="<fmt:message key="CANCEL_PRODUCT"/>" id="req_cancel_product_button">
-            <c:if test="${adminUser != null}">
-            <form action="${pageContext.request.contextPath}/main" method="post">
-                <input type="submit" value="<fmt:message key="OK"/>">
+        <c:if test="${adminUser != null}">
+            <button form="cancel_product_form" type="submit"><fmt:message key="OK"/></button>
+            <form id="cancel_product_form" action="${pageContext.request.contextPath}/main" method="post">
                 <input type="hidden" name="productID" value="${product.id}">
                 <input type="hidden" name="command" value="CANCEL_PRODUCT">
-                <input type="hidden" name="role" value="admin">
+                <input type="hidden" name="role" value="${adminUser.role}">
             </form>
-            </c:if>
+        </c:if>
     </c:forEach>
     <hr>
     <c:out value="${check.date}"/>

@@ -68,5 +68,10 @@
         </c:if>
     </ul>
 </nav>
+<form action="${pageContext.request.contextPath}/main" method="post">
+    <input type="hidden" name="command" value="RETURN">
+    <input type="hidden" name="role" value="${user.role}">
+    <button type="submit"><fmt:message key="RETURN"/></button>
+</form>
 </body>
 </html>

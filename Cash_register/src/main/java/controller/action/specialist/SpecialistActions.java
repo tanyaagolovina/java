@@ -1,22 +1,22 @@
 package controller.action.specialist;
 
 import controller.action.Action;
-import controller.action.generalActions.DefaultAction;
-import controller.action.generalActions.LogoutAction;
-import controller.action.generalActions.LoginAction;
+import controller.action.generalActions.*;
 
 public enum SpecialistActions {
-    CREATE_PRODUCT("",new CreateProductAction()),
-    CREATE_REPORT("",new CreateReportAction()),
-    LOGIN("login",new LoginAction()),
-    LOGOUT("",new LogoutAction()),
-    DEFAULT("error",new DefaultAction());
+    CREATE_PRODUCT(new CreateProductAction()),
+    CREATE_REPORT(new CreateReportAction()),
+    ADD_NEW_PRODUCT(new AddNewProductAction()),
+    DELETE_PRODUCT(new DeleteProductAction()),
+    LOGIN_FORM(new LoginForFormAction()),
+    LOGIN(new LoginAction()),
+    LOGOUT(new LogoutAction()),
+    RETURN(new ReturnAction()),
+    DEFAULT(new DefaultAction());
 
     Action action;
-    String page;
 
-    SpecialistActions(String page, Action action){
-        this.page = page;
+    SpecialistActions(Action action){
         this.action = action;
     }
 

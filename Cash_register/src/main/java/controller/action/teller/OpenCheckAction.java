@@ -13,8 +13,10 @@ public class OpenCheckAction implements Action {
     public OpenCheckAction(){
         service = new CheckService();
     }
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().removeAttribute("check");
         int check_ID = service.openCheck();
         if(check_ID != 0) {
             HttpSession session = request.getSession();

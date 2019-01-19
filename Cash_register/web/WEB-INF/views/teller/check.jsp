@@ -31,7 +31,7 @@
     <h2><fmt:message key="BYE"/></h2>
     <form action="${pageContext.request.contextPath}/main">
         <input type="hidden" name="command" value="RETURN">
-        <input type="hidden" name="role" value="teller">
+        <input type="hidden" name="role" value="${user.role}">
         <input type="submit" value="<fmt:message key="RETURN"/>">
     </form>
 </c:if>

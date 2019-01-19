@@ -28,11 +28,12 @@
 </select>
 </form>
 <jsp:include page="header.jsp" />--%>
-<c:out value="${user},"/><fmt:message key="GREETING"/>
-<form action="${pageContext.request.contextPath}/main" method="post">
+<p><c:out value="${user},"/><fmt:message key="GREETING"/></p>
+<button form="open_check_form" type="submit" name="login"><fmt:message key="OPEN_CHECK"/></button>
+<jsp:include page="/WEB-INF/views/logout.jsp"/>
+<form id="open_check_form" action="${pageContext.request.contextPath}/main" method="post">
     <input type="hidden" name="command" value="OPEN_CHECK"/>
-    <input type="hidden" name="role" value="teller"/>
-    <input type="submit" name="login" value=<fmt:message key="OPEN_CHECK"/>>
+    <input type="hidden" name="role" value="${user.role}"/>
 </form>
 </body>
 </html>

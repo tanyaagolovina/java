@@ -11,7 +11,6 @@
 
 <%--<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session"/>--%>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.messages"/>
 
 
 <html>
@@ -21,15 +20,13 @@
     <title><fmt:message key="GREETING"/></title>
 </head>
 <body>
-
-<%--<form action="${lang.changeLocale(language)}">
-<select name="language" onchange="submit()">
-    <option value="en">English</option>
-    <option value="ru" selected>Russian</option>
-</select>
+<p><c:out value="${user},"/><fmt:message key="GREETING"/></p>
+<button form="all_checks_form" type="submit"><fmt:message key="ALL_CHECKS"/></button>
+<jsp:include page="/WEB-INF/views/logout.jsp"/>
+<form id="all_checks_form" action="${pageContext.request.contextPath}/main" method="post">
+    <input type="hidden" name="role" value="${user.role}">
+    <input type="hidden" name="command" value="GET_ALL_CHECKS">
+    <input type="hidden" name="currentPage" value="1">
 </form>
-<jsp:include page="header.jsp" />--%>
-<c:out value="${user},"/><fmt:message key="GREETING"/>
-
 </body>
 </html>

@@ -11,6 +11,7 @@ public class Books {
     public Book[] getBooks() {
         return books;
     }
+
     public void setBooks(Book[] books) {
         this.books = books;
     }
@@ -25,6 +26,7 @@ public class Books {
         }
         return Arrays.copyOf( temp, counter);
     }
+
     public Book[] findByPublisher(String publisher){
         Book[] temp = new Book[books.length];
         int counter = 0;
@@ -36,9 +38,11 @@ public class Books {
         return Arrays.copyOf( temp, counter);
 
     }
+
     private int parseInt(String year){
         return Integer.parseInt(year);
     }
+
     public Book[] findByYear(String year){
         Book[] temp = new Book[books.length];
         int counter = 0;
@@ -50,6 +54,7 @@ public class Books {
         return Arrays.copyOf( temp, counter);
 
     }
+
     public Book[] orderByPublisher(){
         Arrays.sort( books, new BooksComparator());
         return Arrays.copyOf( books, books.length);

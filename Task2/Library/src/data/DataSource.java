@@ -3,6 +3,7 @@ package data;
 import model.entity.Book;
 
 public class DataSource {
+
     public static Book[] getBooks(){
         return new Book[]{
                 new Book("Title1","Shevchenko","BXV", 2010, 320, 450.0),

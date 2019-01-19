@@ -4,19 +4,22 @@ import controller.action.Action;
 import controller.action.generalActions.DefaultAction;
 import controller.action.generalActions.LogoutAction;
 import controller.action.generalActions.LoginAction;
+import controller.action.generalActions.ReturnAction;
 
 public enum  AdminActions {
-    CANCEL_CHECK("",new CancelCheckAction()),
-    CANCEL_PRODUCT("",new CancelProductAction()),
-    LOGIN("login", new LoginAction()),
-    LOGOUT("", new LogoutAction()),
-    DEFAULT("",new DefaultAction());
+    CANCEL_CHECK(new CancelCheckAction()),
+    CANCEL_PRODUCT(new CancelProductAction()),
+    GET_ALL_CHECKS(new GetAllChecksAction()),
+    GET_CANCELED_CHECKS(new GetCanceledChecks()),
+    VIEW_CHECK(new ViewCheckAction()),
+    LOGIN(new LoginAction()),
+    LOGOUT(new LogoutAction()),
+    RETURN(new ReturnAction()),
+    DEFAULT(new DefaultAction());
 
     Action action;
-    String page;
 
-    AdminActions(String page, Action action){
-        this.page = page;
+    AdminActions(Action action){
         this.action = action;
     }
 
@@ -24,7 +27,4 @@ public enum  AdminActions {
         return action;
     }
 
-    public String getPage(){
-        return page;
-    }
 }

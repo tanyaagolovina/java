@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 public class CreateProductAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return null;
+        request.getSession().removeAttribute("messageList");
+        request.getSession().removeAttribute("product");
+        return configurationManager.getProperty("create_product");
     }
 }

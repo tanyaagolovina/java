@@ -9,12 +9,6 @@ import java.util.stream.Collectors;
 
 public class MySQLProductDAO extends ProductDAO {
 
-    /*private final String GET_ALL = "SELECT * FROM goods";
-    private final String GET_AMOUNT_OF_PRODUCT = "SELECT amount FROM goods WHERE productID = ?";
-    private final String GET_BY_ID = "SELECT * FROM goods WHERE productID = ?";
-    private final String INSERT_PRODUCT = "INSERT INTO goods (productID, name, price, amount) VALUES (?, ?, ?, ?)";
-    private final String UPDATE_PRODUCT = "UPDATE goods SET price = ? WHERE productID = ?";
-    private final String UPDATE_AMOUNT = "UPDATE goods SET amount = ? WHERE productID = ?";*/
 
     public List<Product> getAll() {
         List<Product> products = new ArrayList<Product>();
@@ -52,7 +46,6 @@ public class MySQLProductDAO extends ProductDAO {
     }
 
     public Product addProduct(int id, String name, double price, int amount) {
-        //boolean flag = false;
         Product product = null;
         Savepoint savepoint = null;
         try(PreparedStatement preparedStatement = connection.prepareStatement(queriesManager.getProperty("product.INSERT_PRODUCT"))){
@@ -62,7 +55,7 @@ public class MySQLProductDAO extends ProductDAO {
             preparedStatement.setString(2, name);
             preparedStatement.setDouble(3, price);
             preparedStatement.setInt(4, amount);
-            //flag = preparedStatement.executeUpdate() != 0;
+            preparedStatement.execute();
             product = new Product(id, name, price, amount);
             connection.commit();
             connection.setAutoCommit(true);
@@ -77,8 +70,25 @@ public class MySQLProductDAO extends ProductDAO {
         return product;
     }
 
-    public boolean deleteProduct() {
-        return false;
+    public boolean deleteProduct(int productID) {
+        boolean flag = false;
+        Savepoint savepoint = null;
+        try(PreparedStatement preparedStatement = connection.prepareStatement(queriesManager.getProperty("product.DELETE_PRODUCT"))) {
+            savepoint = connection.setSavepoint("DeleteProduct");
+            connection.setAutoCommit(false);
+            preparedStatement.setInt(1, productID);
+            flag = preparedStatement.executeUpdate() != 0;
+            connection.commit();
+            connection.setAutoCommit(true);
+        } catch (SQLException e) {
+            try {
+                connection.rollback(savepoint);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+        return flag;
     }
 
     public boolean updateProduct(double price, int productID) {

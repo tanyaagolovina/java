@@ -12,11 +12,26 @@ public class Check {
     private double totalPrice;
     private String date;
     private int checkNumber;
-
+    private String status;
 
     public Check(){
         products = new ArrayList<>();
     }
+
+    public Check(int checkNumber, String date, String status){
+        this.checkNumber = checkNumber;
+        this.date = date;
+        this.status = status;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
 
 
     public List<Product> getProducts() {

@@ -25,9 +25,6 @@ import java.io.PrintWriter;
 public class Controller extends HttpServlet {
 
     //RequestHelper requestHelper = RequestHelper.getInstance();
-    public Controller() {
-        super();
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -61,7 +58,9 @@ public class Controller extends HttpServlet {
         Action action = actionFactory.getAction(actionRequest);
         System.out.println(action.getClass());*/
         CheckService service = new CheckService();
-        System.out.println(service.cancelProduct(128, 3));
+        //System.out.println(service.getAll());
+        System.out.println("Canceled checks!!!");
+        System.out.println(service.getCanceledChecks());
 
     }
 

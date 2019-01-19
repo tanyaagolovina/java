@@ -14,6 +14,9 @@ public class ProductService extends Service {
         return productDAO.addProduct(productID, name, price, amount);
     }
 
+    public boolean deleteProduct(int productID){
+        return productDAO.deleteProduct(productID);
+    }
 
     public boolean ifProductExist(int productID){
         return productDAO.ifProductExist(productID);
